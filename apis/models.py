@@ -30,3 +30,39 @@ class ObItem(models.Model):
 
     def __str__(self):
         return self.item_description_english
+    
+class ResUsers(models.Model):
+    active = models.NullBooleanField()
+    login = models.CharField(unique=True, max_length=64)
+    password = models.CharField(max_length=100, blank=True, null=True)
+    # company = models.ForeignKey('ResCompany', models.DO_NOTHING)
+    # partner = models.ForeignKey('ResPartner', models.DO_NOTHING)
+    create_date = models.DateTimeField(blank=True, null=True)
+    # create_uid = models.ForeignKey('self', models.DO_NOTHING, db_column='create_uid', blank=True, null=True)
+    # share = models.NullBooleanField()
+    # write_uid = models.ForeignKey('self', models.DO_NOTHING, db_column='write_uid', blank=True, null=True)
+    write_date = models.DateTimeField(blank=True, null=True)
+    # signature = models.TextField(blank=True, null=True)
+    # action_id = models.IntegerField(blank=True, null=True)
+    password_crypt = models.CharField(max_length=100, blank=True, null=True)
+    # alias = models.ForeignKey('MailAlias', models.DO_NOTHING)
+    # chatter_needaction_auto = models.NullBooleanField()
+    # sale_team = models.ForeignKey('CrmTeam', models.DO_NOTHING, blank=True, null=True)
+    # target_sales_done = models.IntegerField(blank=True, null=True)
+    # target_sales_won = models.IntegerField(blank=True, null=True)
+    # target_sales_invoiced = models.IntegerField(blank=True, null=True)
+    last_name = models.CharField(max_length=100, blank=True, null=True)
+    role_in_org = models.CharField(max_length=100, blank=True, null=True)
+    first_name = models.CharField(max_length=100, blank=True, null=True)
+    phone = models.CharField(max_length=100, blank=True, null=True)
+    is_deleted = models.NullBooleanField()
+    is_prime = models.NullBooleanField()
+    user_name = models.CharField(max_length=100, blank=True, null=True)
+    mobile = models.CharField(max_length=100, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'res_users'
+
+    def __str__(self):
+        return self.login
