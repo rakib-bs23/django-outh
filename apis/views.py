@@ -10,7 +10,7 @@ from .models import ObItem
 
 class UserViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    Return a list of all the existing users.
     """
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
     queryset = User.objects.all().order_by('-date_joined')
@@ -19,7 +19,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class GroupViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows groups to be viewed or edited.
+        Return a list of all item codes.
     """
     permission_classes = [permissions.IsAuthenticated, TokenHasScope]
     required_scopes = ['drivers']

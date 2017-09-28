@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'rest_framework',
     'apis',
+    'rest_framework_docs',
 ]
 
 OAUTH2_PROVIDER = {

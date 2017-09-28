@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from apis.views import UserViewSet, GroupViewSet
+from rest_framework.documentation import include_docs_urls
 
 # Routers provide an easy way of automatically determining the URL conf
 router = routers.DefaultRouter()
@@ -28,4 +29,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    url(r'^docs/', include('rest_framework_docs.urls')),
 ]
